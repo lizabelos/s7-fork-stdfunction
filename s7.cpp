@@ -29032,7 +29032,7 @@ static s7_pointer read_file(s7_scheme *sc, FILE *fp, const char *name, s7_int ma
     {
       block_t *block = mallocate(sc, size + 2);
       uint8_t *content = (uint8_t *)(block_data(block));
-      size_t bytes = fread(content, sizeof(uint8_t), size, fp);
+      size_t bytes = s7_fread_exact(content, sizeof(uint8_t), size, fp);
       if (bytes != (size_t)size)
 	{
 	  if (current_output_port(sc) != sc->F)

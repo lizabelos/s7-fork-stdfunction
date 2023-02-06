@@ -38,6 +38,19 @@ struct s7_cell;
 
 class s7_function;
 
+inline size_t s7_fread_exact(void *ptr, size_t size, size_t nmemb, FILE *stream)
+{
+    size_t bytes_read = 0;
+    while (bytes_read < size * nmemb)
+    {
+        size_t bytes = fread((char *)ptr + bytes_read, 1, size * nmemb - bytes_read, stream);
+        if (bytes == 0)
+            return bytes_read / size;
+        bytes_read += bytes;
+    }
+    return nmemb;
+}
+
 typedef struct s7_pointer {
 
     inline s7_pointer() : mPtr(nullptr) {}
