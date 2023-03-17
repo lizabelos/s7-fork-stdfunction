@@ -333,9 +333,9 @@
 #endif
 
 #ifdef _MSC_VER
-  #define noreturn _Noreturn /* deprecated in C23 */
+  #define noreturn
 #else
-  #define noreturn __attribute__((noreturn))
+  #define noreturn
   /* this is ok in gcc/g++/clang and tcc; pure attribute is rarely applicable here, and does not seem to be helpful (maybe safe_strlen) */
 #endif
 
