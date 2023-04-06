@@ -9,6 +9,7 @@
 #include <stdint.h>           /* for int64_t */
 #include <cassert>
 #include <vector>
+#include <stdexcept>
 
 typedef int64_t s7_int;
 typedef double s7_double;
